@@ -1,19 +1,57 @@
+<div role="dialog" aria-label="Eat me!" layout="column" layout-align="center center">
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2>Add Job</h2>
+    </div>
+  </md-toolbar>
+  <div class="demo-dialog-content">
 
-<md-input-container class="md-icon-float md-block">
+    <md-input-container class="md-icon-float md-block">
+      <input mdInput placeholder="Job Name" value="">
+    </md-input-container>
+    <md-input-container class="md-icon-float md-block">
+      <input mdInput placeholder="Category" value="">
+    </md-input-container>
+    <md-input-container class="md-icon-float md-block">
 
-  <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="name"></md-icon>
-  <input mdInput placeholder="Name" value="">
-</md-input-container>
-<md-input-container class="md-icon-float md-block">
-  <input mdInput placeholder="Category" value="">
-</md-input-container>
-<md-input-container class="md-icon-float md-block">
-  <input mdInput placeholder="Location" value="">
-</md-input-container>
-<md-input-container class="md-icon-float md-block">
-  <input mdInput placeholder="Description" value="">
-</md-input-container>
+      <textarea mdInput placeholder="Description" value=""></textarea>
+    </md-input-container>
+    <md-input-container class="md-icon-float md-block">
+      <input mdInput placeholder="Duration" value="">
+    </md-input-container>
+    <md-input-container class="md-icon-float md-block">
+      <input mdInput placeholder="Hourly Fee" value="">
+    </md-input-container>
+    <md-datepicker #picker></md-datepicker>
+    <md-input-container class="md-icon-float md-block">
+      <button mdSuffix [mdDatepickerToggle]="picker"></button>
+      <input mdInput [mdDatepicker]="picker" placeholder="Prefferd Date">
 
-<p>
-  postjob works!
-</p>
+    </md-input-container>
+
+    <md-input-container class="md-icon-float md-block">
+      <input mdInput placeholder="Prefered Time" value="">
+    </md-input-container>
+    <md-input-container class="md-icon-float md-block">
+      <input mdInput placeholder="Location" value="">
+    </md-input-container>
+  </div>
+
+  <div class="userActionButtonGroup">
+    <button md-icon-button md-mini-fab color="accent">
+      <md-icon class="material-icons">done</md-icon>
+    </button>
+    <label>Submit</label>
+    <button md-icon-button md-mini-fab color="warn" md-dialog-close>
+      <md-icon class="material-icons">cancel</md-icon>
+    </button>
+    <label>Cancel</label>
+  </div>
+
+</div>
+
+
+
+
+
+

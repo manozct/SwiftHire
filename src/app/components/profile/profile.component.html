@@ -1,3 +1,23 @@
-<p>
-  profile works!
-</p>
+
+<div role="dialog" aria-label="Eat me!" layout="column" layout-align="center center">
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2>{{auth.getUser().name}}</h2>
+      <p>user id: {{auth.getUser().sub}}</p>
+    </div>
+
+  </md-toolbar>
+  <div class="demo-dialog-content">
+    <md-card><img md-card-avatar src={{auth.getUser().picture}}></md-card>
+
+  </div>
+
+
+</div>
+
+
+
+
+
+
+

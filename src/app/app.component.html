@@ -1,12 +1,12 @@
 <md-toolbar color="primary">
-  <i class="material-icons">home</i>
-  <span>SwiftHire</span>
+  <a><i class="material-icons">home</i></a>
+  <!--<span>SwiftHire</span>-->
   <span class="spacer"></span>
 
-  <a *ngIf="auth.isAuthenticated()" md-mini-fab [routerLink]="['profile']"><md-card><img md-card-avatar src="{{myImage}}"></md-card></a>
-
+  <!--<a *ngIf="auth.isAuthenticated()" md-mini-fab [routerLink]="['profile']"><md-card><img md-card-avatar src="{{auth.getUser().picture}}"></md-card></a>-->
+  <md-card  *ngIf="auth.isAuthenticated()"><img md-card-avatar src={{auth.getUser().picture}}></md-card>
   <button md-icon-button [mdMenuTriggerFor]="menu2">
-    <md-icon>menu</md-icon>
+    <md-icon>more_vert</md-icon>
   </button>
 
 
@@ -24,6 +24,7 @@
 
   </md-menu>
 </md-toolbar>
+
 
 <main class="container">
   <router-outlet></router-outlet>

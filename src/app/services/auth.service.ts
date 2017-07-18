@@ -10,11 +10,14 @@ export class AuthService {
   auth0 = new auth0.WebAuth({
     clientID: 'QssBlaeGRGif0iif8OO9DFT5Z877BRbR',
     domain: 'manojchaudhary.auth0.com',
+    redirect:false,
     responseType: 'token id_token',
     audience: 'https://manojchaudhary.auth0.com/userinfo',
     redirectUri: 'http://localhost:4200/homepage',
     scope: 'openid profile'
   });
+
+
 
   loggedIn:EventEmitter<string>;
 
@@ -67,7 +70,6 @@ export class AuthService {
   }
   getUser(){
     return JSON.parse(localStorage.getItem('profile'));
-
 
   }
 

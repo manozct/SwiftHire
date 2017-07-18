@@ -1,24 +1,15 @@
-
 <md-tab-group>
   <i class="material-icons">person</i>
-  <md-tab label="Profile"></md-tab>
-  <md-tab label="My Posts"></md-tab>
-  <md-tab label="Post a Job" ></md-tab>
+  <md-tab label="Profile"><app-profile></app-profile></md-tab>
+  <md-tab label="My Posts">jhnj</md-tab>
 
-
+  <md-tab label="Post a Job">
+    <!--<app-postjob></app-postjob>-->
+    <a (click)="openDialog()">Add Post</a>
+  </md-tab>
 
 
 </md-tab-group>
-<a [routerLink]="['post']" >go to post</a>
-<router-outlet></router-outlet>
 
 
 
-
-
-
-
-
-<p>
-  homepage works!
-</p>

@@ -10,9 +10,11 @@ import { HomepageComponent } from './components/homepage/homepage.component';
 import {DataService} from './services/data.service';
 import {AuthService} from './services/auth.service';
 import {MyRoutesModule} from './app.routes';
-import {MaterialModule} from '@angular/material';
+import {MaterialModule, MdNativeDateModule} from '@angular/material';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {HttpModule} from "@angular/http";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+
 
 @NgModule({
   declarations: [
@@ -26,13 +28,16 @@ import {HttpModule} from "@angular/http";
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     MyRoutesModule,
     BrowserAnimationsModule,
-    MaterialModule
-
+    MaterialModule,
+    MdNativeDateModule
 
   ],
   providers: [DataService, AuthService],
+  entryComponents:[PostjobComponent,ProfileComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

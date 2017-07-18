@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FormBuilder, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-postjob',
@@ -6,10 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./postjob.component.css']
 })
 export class PostjobComponent implements OnInit {
+  addPostForm:FormGroup
+   categories:string[]=['Developer','Tester','Education','Pharmacy'];
 
-  constructor() { }
+  constructor(private formBuilder:FormBuilder) {
+    formBuilder.group(
+      {
+
+
+      }
+    )
+  }
 
   ngOnInit() {
+
     console.log('post a job container');
   }
 

@@ -8,7 +8,7 @@ import {AuthService} from "./services/auth.service";
 })
 export class AppComponent {
   myImage: string;
-  email:string;
+  userId:string;
 
   constructor(public auth: AuthService) {
     this.auth.loggedIn.subscribe(profile => {
@@ -16,8 +16,9 @@ export class AppComponent {
 
         this.myImage = profile.picture;
         console.log("myimage" + this.myImage);
-        this.email=profile.email;
-        console.log("myemail"+this.email);
+        this.userId=profile.sub;
+        console.log("User ID"+this.userId);
+
       }
     );
 
