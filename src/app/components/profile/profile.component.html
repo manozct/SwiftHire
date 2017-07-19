@@ -1,19 +1,44 @@
-
 <div role="dialog" aria-label="Eat me!" layout="column" layout-align="center center">
   <md-toolbar>
     <div class="md-toolbar-tools">
-      <h2>{{auth.getUser().name}}</h2>
-      <p>user id: {{auth.getUser().sub}}</p>
+
     </div>
+    <span>Profile</span>
+
 
   </md-toolbar>
   <div class="demo-dialog-content">
-    <md-card><img md-card-avatar src={{auth.getUser().picture}}></md-card>
+    <md-card><img md-card-avatar src={{auth.getUser().picture}}>
+      <p>{{auth.getUser().email}}</p>
+      <p>user id: {{auth.getUser().sub}}</p>
+      <p>name: {{auth.getUser().name}}</p>
+      <p>phone: </p>
+      <p>zipcode: </p>
 
+      <label>Edit</label>
+      <i class="material-icons">edit</i>
+
+    </md-card>
   </div>
+
+  <md-input-container class="md-icon-float md-block">
+    <input mdInput placeholder="Zipcode" value="">
+  </md-input-container>
+  <md-input-container class="md-icon-float md-block">
+    <input mdInput placeholder="Phone No." value="">
+  </md-input-container>
+  <br>
+
+  <button md-icon-button md-mini-fab color="accent">
+    <md-icon class="material-icons">done</md-icon>
+  </button>
+  <button md-icon-button md-mini-fab color="warn" md-dialog-close>
+    <md-icon class="material-icons">cancel</md-icon>
+  </button>
 
 
 </div>
+
 
 
 

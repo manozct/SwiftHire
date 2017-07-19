@@ -1,3 +1,19 @@
-<p>
-  posts works!
-</p>
+<div ng-controller="SubheaderAppCtrl" layout="column" flex layout-fill ng-cloak>
+
+  <md-toolbar md-scroll-shrink>
+    <div class="md-toolbar-tools">My Post</div>
+  </md-toolbar>
+
+
+
+
+  <div class="demo-dialog-content">
+    <md-card><img md-card-avatar src={{auth.getUser().picture}}>
+      <p>{{auth.getUser().name}}</p>
+      <h3>name: Comment</h3>
+      <h4>{{auth.getUser().name}}</h4>
+    </md-card>
+    <!--</md-content>-->
+  </div>
+
+</div>

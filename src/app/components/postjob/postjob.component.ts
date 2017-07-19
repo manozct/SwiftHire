@@ -23,5 +23,8 @@ export class PostjobComponent implements OnInit {
 
     console.log('post a job container');
   }
+  close(){
+    this.close();
+  }
 
 }

@@ -1,45 +1,61 @@
 import {EventEmitter, Injectable} from "@angular/core";
-import * as auth0 from "auth0-js";
+
 import {Router} from "@angular/router";
-
-
+import {tokenNotExpired} from "angular2-jwt";
+import * as auth0 from "auth0-js";
 
 
 @Injectable()
 export class AuthService {
+
+  /*lock=new Auth0Lock('6XaSK7EIxsRYjOTTQp1GOLtxzmxCfduo','swifthireapp.auth0.com',{
+   redirect:false,
+   responseType: 'token id_token',
+   redirectUri: 'http://localhost:4200/homepage',
+   scope: 'openid profile'
+
+   });*/
+
+
   auth0 = new auth0.WebAuth({
-    clientID: 'QssBlaeGRGif0iif8OO9DFT5Z877BRbR',
-    domain: 'manojchaudhary.auth0.com',
-    redirect:false,
+    clientID: '6XaSK7EIxsRYjOTTQp1GOLtxzmxCfduo',
+    domain: 'swifthireapp.auth0.com',
+    redirect: false,
     responseType: 'token id_token',
-    audience: 'https://manojchaudhary.auth0.com/userinfo',
     redirectUri: 'http://localhost:4200/homepage',
     scope: 'openid profile'
   });
 
-
-
-  loggedIn:EventEmitter<string>;
+  loggedIn: EventEmitter<string>;
 
   constructor(private router: Router) {
-    this.loggedIn=new EventEmitter();
+    this.loggedIn = new EventEmitter();
+
+    /*this.lock.on('authenticated', (authResult) => {
+     localStorage.setItem('token', authResult.idToken);
+     localStorage.setItem('accessToken', authResult.accessToken);
+     localStorage.setItem('profile', JSON.stringify(authResult.idTokenPayload));
+     this.loggedIn.emit(authResult.idTokenPayload);
+     });*/
+
+
   }
+
 
   login(): void {
     this.auth0.authorize();
+
+    //this.lock.show();
   }
 
- /* public loggedIn(){
-    return tokenNotExpired;
-
-  }*/
 
   public handleAuthentication(): void {
     this.auth0.parseHash((err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
         window.location.hash = '';
         this.setSession(authResult);
-        console.log("before navigate"+ localStorage.getItem("profile"));
+        // console.log("before navigate"+ localStorage.getItem("profile"));
+        console.dir(authResult);
         this.router.navigate(['homepage']);
       } else if (err) {
         this.router.navigate(['home']);
@@ -54,7 +70,7 @@ export class AuthService {
     localStorage.setItem('access_token', authResult.accessToken);
     localStorage.setItem('id_token', authResult.idToken);
     localStorage.setItem('expires_at', expiresAt);
-    localStorage.setItem('profile',JSON.stringify(authResult.idTokenPayload));
+    localStorage.setItem('profile', JSON.stringify(authResult.idTokenPayload));
     this.loggedIn.emit((authResult.idTokenPayload));
 
   }
@@ -68,9 +84,14 @@ export class AuthService {
     // Go back to the home route
     this.router.navigate(['']);
   }
-  getUser(){
+
+  getUser() {
     return JSON.parse(localStorage.getItem('profile'));
 
+  }
+
+  public logged() {
+    return tokenNotExpired();
   }
 
   public isAuthenticated(): boolean {

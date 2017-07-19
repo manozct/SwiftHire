@@ -1,14 +1,15 @@
-import { Routes, RouterModule } from '@angular/router'
-
+import {RouterModule, Routes} from "@angular/router";
 //Components
-import { AppComponent } from './app.component';
 import {HomepageComponent} from "./components/homepage/homepage.component";
 import {PostjobComponent} from "./components/postjob/postjob.component";
+import {ValiduserGuard} from "./guards/validuser.guard";
+import {JobpostComponent} from "./components/jobpost/jobpost.component";
 
 
 const MY_ROUTES: Routes = [
-  {path:"homepage",component:HomepageComponent},
-  {path:"homepage/post",component:PostjobComponent}
+  {path: "homepage", component: HomepageComponent},
+  /*{path: "homepage/postjob", component: PostjobComponent},*/
+  {path: "homepage/jobpost", component: JobpostComponent,canActivate:[ValiduserGuard]},
 
 
 ]

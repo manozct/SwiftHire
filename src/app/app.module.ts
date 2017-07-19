@@ -1,6 +1,6 @@
 import 'hammerjs';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 import { AppComponent } from './app.component';
 import { PostjobComponent } from './components/postjob/postjob.component';
 import { PostsComponent } from './components/posts/posts.component';
@@ -14,6 +14,9 @@ import {MaterialModule, MdNativeDateModule} from '@angular/material';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {HttpModule} from "@angular/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {ValiduserGuard} from "./guards/validuser.guard";
+import { JobpostComponent } from './components/jobpost/jobpost.component';
+
 
 
 @NgModule({
@@ -23,7 +26,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     PostsComponent,
     JoblistComponent,
     ProfileComponent,
-    HomepageComponent
+    HomepageComponent,
+    JobpostComponent
 
   ],
   imports: [
@@ -33,11 +37,12 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     MyRoutesModule,
     BrowserAnimationsModule,
     MaterialModule,
-    MdNativeDateModule
+    MdNativeDateModule,
+
 
   ],
-  providers: [DataService, AuthService],
-  entryComponents:[PostjobComponent,ProfileComponent],
+  providers: [DataService, AuthService,ValiduserGuard],
+  entryComponents:[PostjobComponent,ProfileComponent,PostsComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

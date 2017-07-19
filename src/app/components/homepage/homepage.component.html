@@ -1,15 +1,29 @@
-<md-tab-group>
-  <i class="material-icons">person</i>
-  <md-tab label="Profile"><app-profile></app-profile></md-tab>
-  <md-tab label="My Posts">jhnj</md-tab>
 
-  <md-tab label="Post a Job">
-    <!--<app-postjob></app-postjob>-->
-    <a (click)="openDialog()">Add Post</a>
-  </md-tab>
+<i class="material-icons">list</i>
+<select>
+  <option value="selectCategory" selected>Select Category</option>
+  <option value="softwareDevelopment">Software Development</option>
+  <option value="education">Education</option>
+  <option value="medicalScience">Medical Science</option>
+  <option value="agriculture">Agriculture</option>
+</select>
+
+<i class="material-icons">location_on</i>
+<md-input-container class="md-icon-float md-block">
+
+  <input mdInput placeholder="Location" value="">
+</md-input-container>
+<i class="material-icons">attach_money</i>
+<md-input-container class="md-icon-float md-block">
+  <input mdInput placeholder="Minimum Fee" value="">
+
+</md-input-container>
 
 
-</md-tab-group>
 
+<i class="material-icons">add_circle</i>
+<a [routerLink]="['jobpost']">Post</a>
+
+<router-outlet></router-outlet>
 
 

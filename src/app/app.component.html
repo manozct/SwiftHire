@@ -1,28 +1,52 @@
 <md-toolbar color="primary">
-  <a><i class="material-icons">home</i></a>
+  <i class="material-icons">home</i>
+  <a [routerLink]="['homepage']">SwiftHire</a>
+
   <!--<span>SwiftHire</span>-->
   <span class="spacer"></span>
 
   <!--<a *ngIf="auth.isAuthenticated()" md-mini-fab [routerLink]="['profile']"><md-card><img md-card-avatar src="{{auth.getUser().picture}}"></md-card></a>-->
-  <md-card  *ngIf="auth.isAuthenticated()"><img md-card-avatar src={{auth.getUser().picture}}></md-card>
+  <md-card *ngIf="auth.isAuthenticated()"><img md-card-avatar src={{auth.getUser().picture}}></md-card>
+
+
   <button md-icon-button [mdMenuTriggerFor]="menu2">
+
     <md-icon>more_vert</md-icon>
+
   </button>
 
 
   <md-menu #menu2="mdMenu">
-    <button md-menu-item  (click)="auth.login()" *ngIf="!auth.isAuthenticated()">
+    <button md-menu-item (click)="auth.login()" *ngIf="!auth.isAuthenticated()">
       <md-icon>fingerprint</md-icon>
       <span>Login</span>
     </button>
-    <button md-menu-item *ngIf="auth.isAuthenticated()" (click)="auth.logout()">
-      <md-icon>fingerprint</md-icon>
-      <span>Logout</span>
 
+
+    <button md-menu-item *ngIf="auth.isAuthenticated()" (click)="openMyProfile()">
+      <!--<md-icon>fingerprint</md-icon>-->
+      <i><img md-card-avatar src={{auth.getUser().picture}}></i>
+
+      <span>Profile</span>
+    </button>
+
+    <button md-menu-item *ngIf="auth.isAuthenticated()" (click)="openMyPost()">
+      <!--<md-icon>fingerprint</md-icon>-->
+      <i class="material-icons">list</i>
+      <span>My Post</span>
+
+    </button>
+
+    <button md-menu-item *ngIf="auth.isAuthenticated()" (click)="auth.logout()">
+      <!--<md-icon>fingerprint</md-icon>-->
+      <i class="material-icons">exit_to_app</i>
+      <span>Logout</span>
     </button>
 
 
   </md-menu>
+
+
 </md-toolbar>
 
 
