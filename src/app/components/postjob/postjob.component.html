@@ -7,33 +7,33 @@
   <div class="demo-dialog-content">
 
     <md-input-container class="md-icon-float md-block">
-      <input mdInput placeholder="Job Name" value="">
+      <input mdInput placeholder="Job Name" value="" formControlName="name">
     </md-input-container>
     <md-input-container class="md-icon-float md-block">
-      <input mdInput placeholder="Category" value="">
+      <input mdInput placeholder="Category" value="" formControlName="category">
     </md-input-container>
     <md-input-container class="md-icon-float md-block">
 
-      <textarea mdInput placeholder="Description" value=""></textarea>
+      <textarea mdInput placeholder="Description" value="" formControlName="description"></textarea>
     </md-input-container>
     <md-input-container class="md-icon-float md-block">
-      <input mdInput placeholder="Duration" value="">
+      <input mdInput placeholder="Duration" value="" formControlName="duration">
     </md-input-container>
     <md-input-container class="md-icon-float md-block">
-      <input mdInput placeholder="Hourly Fee" value="">
+      <input mdInput placeholder="Hourly Fee" value="" formControlName="hourlyfee">
     </md-input-container>
     <md-datepicker #picker></md-datepicker>
     <md-input-container class="md-icon-float md-block">
       <button mdSuffix [mdDatepickerToggle]="picker"></button>
-      <input mdInput [mdDatepicker]="picker" placeholder="Prefferd Date">
+      <input mdInput [mdDatepicker]="picker" placeholder="Prefferd Date" formControlName="preferredDate">
 
     </md-input-container>
 
     <md-input-container class="md-icon-float md-block">
-      <input mdInput placeholder="Prefered Time" value="">
+      <input mdInput placeholder="Prefered Time" value="" formControlName="preferredTime">
     </md-input-container>
     <md-input-container class="md-icon-float md-block">
-      <input mdInput placeholder="Location" value="">
+      <input mdInput placeholder="Location" value="" formControlName="location">
     </md-input-container>
   </div>
 
